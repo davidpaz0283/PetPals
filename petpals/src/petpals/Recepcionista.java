@@ -16,7 +16,14 @@ public static void main (String [] args) {
 	JOptionPane.showMessageDialog(null, "Es un animal agresivo?");
 	JOptionPane.showInputDialog("si/no: ");
 	
-
+	ImageIcon iconTurnos = new ImageIcon(Main.class.getResource("/images/turnos.png"));
+	JOptionPane.showMessageDialog(null, "", "Menú Reservas", 0, iconTurnos);
+	
+	JOptionPane.showMessageDialog(null, "Por favor brindenos los siguientes datos para reservar su turno");
+	JOptionPane.showInputDialog("Nombre y Apellido: ");
+	JOptionPane.showInputDialog("Domicilio: ");
+	JOptionPane.showInputDialog("Telefono: ");
+	
 }
 	
 }
