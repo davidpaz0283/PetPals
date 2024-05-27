@@ -19,7 +19,6 @@ public class Cuidadores {
 	JOptionPane.showMessageDialog(null, "El animal necesita un alojamiento en nuestro hotel?");
 	JOptionPane.showInputDialog("si/no: ");
 	
-	
 
 }
 }
