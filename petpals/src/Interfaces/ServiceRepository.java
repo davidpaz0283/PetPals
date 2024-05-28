@@ -4,11 +4,12 @@ import java.util.List;
 
 import Modelo.Servicio;
 
+
 public interface ServiceRepository {
 	
-    List<Modelo.Servicio> getAllService(); 
+    List<Servicio> getAllService(); 
     
-    Modelo.Servicio getServiceById(int id); 
+    Servicio getServiceById(int id); 
     
     void addService(Servicio Service); 
     

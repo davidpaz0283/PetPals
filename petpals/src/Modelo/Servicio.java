@@ -1,14 +1,11 @@
 package Modelo;
 
-import java.time.LocalDate;
-
 public class Servicio {
 	private int id;
 	private String corte_de_pelo;
 	private String baño;
 	private String paseo;
 	private String alojamiento;
-	private LocalDate fecha;
 	
 	public String getCorte_de_pelo() {
 		return corte_de_pelo;
@@ -34,25 +31,19 @@ public class Servicio {
 	public void setAlojamiento(String alojamiento) {
 		this.alojamiento = alojamiento;
 	}
-	public LocalDate getFecha() {
-		return fecha;
-	}
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
-	}
-	public Servicio(int id, String corte_de_pelo, String baño, String paseo, String alojamiento, LocalDate fecha) {
+	
+	public Servicio(int id, String corte_de_pelo, String baño, String paseo, String alojamiento) {
 		super();
 		this.id=id;
 		this.corte_de_pelo = corte_de_pelo;
 		this.baño = baño;
 		this.paseo = paseo;
 		this.alojamiento = alojamiento;
-		this.fecha = fecha;
 	}
 	@Override
 	public String toString() {
-		return "Servicio [corte_de_pelo=" + corte_de_pelo + ", baño=" + baño + ", paseo=" + paseo + ", alojamiento="
-				+ alojamiento + ", fecha=" + fecha + "]";
+		return "Servicio [corte_de_pelo= " + corte_de_pelo + ", baño=" + baño + ", paseo=" + paseo + ", alojamiento="
+				+ alojamiento +"]";
 	}
 	public int getId() {
 		return id;
@@ -61,7 +52,4 @@ public class Servicio {
 		this.id = id;
 	}
 	
-	
-
-}
-
+	}
