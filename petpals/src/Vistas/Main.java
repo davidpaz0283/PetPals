@@ -1,4 +1,4 @@
-package petpals;
+package Vistas;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;

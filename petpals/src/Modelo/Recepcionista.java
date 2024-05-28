@@ -1,7 +1,9 @@
-package petpals;
+package Modelo;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
+import Vistas.Main;
 
 public class Recepcionista {
 public static void main (String [] args) {
