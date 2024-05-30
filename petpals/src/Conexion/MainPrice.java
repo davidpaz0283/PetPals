@@ -13,7 +13,7 @@ public class MainPrice {
 		
 		
 		PrecioControlador controlar = new PrecioControlador();
-		
+		JOptionPane.showMessageDialog(null, controlar.getAllPrice());
 		
 		String[] opciones = {
 				"Agregar Precio","Ver Precio","Buscar Precio por id","Editar Precio","Eliminar Precio","Salir"

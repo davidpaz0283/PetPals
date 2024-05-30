@@ -64,7 +64,7 @@ public class ClienteControlador implements CustomerRepository {
 		@Override
 		 public void addCustomer(Cliente Cliente) {
 	        try {
-	            PreparedStatement statement = connection.prepareStatement("INSERT INTO Cliente (nombreYApellido, domicilio, telefono) VALUES (?, ?, ?)");
+	            PreparedStatement statement = connection.prepareStatement("INSERT INTO cliente (nombreYApellido, domicilio, telefono) VALUES (?, ?, ?)");
 	            statement.setString(1, Cliente.getNombreYApellido());
 	            statement.setString(2, Cliente.getDomicilio());
 	            statement.setString(3, Cliente.getTelefono());
@@ -81,7 +81,7 @@ public class ClienteControlador implements CustomerRepository {
 		@Override
 		   public void updateCustomer(Cliente Cliente) {
 	        try {
-	            PreparedStatement statement = connection.prepareStatement("UPDATE Cliente SET nombreYApellido = ?, domicilio = ?, telefono = ? WHERE id = ?");
+	            PreparedStatement statement = connection.prepareStatement("UPDATE cliente SET nombreYApellido = ?, domicilio = ?, telefono = ? WHERE id = ?");
 	            statement.setString(1, Cliente.getNombreYApellido());
 	            statement.setString(2, Cliente.getDomicilio());
 	            statement.setString(3, Cliente.getTelefono());

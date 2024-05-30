@@ -7,8 +7,8 @@ public class Cliente {
 	private String telefono;
 	@Override
 	public String toString() {
-		return "Clientes [id=" + id + ", nombreYApellido=" + nombreYApellido + ", domicilio=" + domicilio
-				+ ", telefono=" + telefono + "]";
+		return "Clientes [id=" + id + ", nombreYApellido=" + nombreYApellido + "," + " domicilio=" + domicilio + 
+				", telefono=" + telefono + "]";
 	}
 	public int getId() {
 		return id;

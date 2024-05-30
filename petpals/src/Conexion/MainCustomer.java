@@ -13,9 +13,10 @@ public class MainCustomer {
 		
 		
 		ClienteControlador controlar = new ClienteControlador();
+		JOptionPane.showMessageDialog(null, controlar.getAllCustomer());
 		
 		
-		String[] opciones = {
+		String[] opciones = { 
 				"Agregar Cliente","Ver Cliente","Buscar Cliente por id","Editar Cliente","Eliminar Cliente","Salir"
 		};
 		int opcion=0;

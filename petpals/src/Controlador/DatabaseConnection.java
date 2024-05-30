@@ -18,7 +18,9 @@ public class DatabaseConnection {
     private DatabaseConnection() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            JOptionPane.showMessageDialog(null, "Se conecto");
         } catch (SQLException e) {
+        	JOptionPane.showMessageDialog(null, "No se conecto");
             e.printStackTrace();
         }
     }
