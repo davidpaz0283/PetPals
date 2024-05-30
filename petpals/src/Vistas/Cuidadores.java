@@ -20,7 +20,6 @@ public class Cuidadores {
 	JOptionPane.showInputDialog("si/no: ");
 	
 	
-	ImageIcon iconDespedida = new ImageIcon(Main.class.getResource("/images/gracias.jpg"));
-	JOptionPane.showMessageDialog(null, "","Gracias por confiar en nosotros", 0, iconDespedida);
+
 }
 }
