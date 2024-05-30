@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.*;
+
 import Controlador.UsuarioControlador;
 import Modelo.Usuario;
 
@@ -17,15 +19,17 @@ public class Test {
 		
 	}
 
+
+
 	public void IngresarUsuarioExistente() {
 		
 		UsuarioControlador controlar = new UsuarioControlador();
 		
-		Usuario nuevo = new Usuario("Antonio", "Recepcionista");
+		Usuario nuevo = new Usuario(0, "Antonio", "Recepcionista", null);
 		boolean test = true;
 		for (Usuario usuario : controlar.getAllUsers()) {
 			
-			if(usuario.getPassword()).equals(nuevo.getPassword())){
+			if(usuario.getPassword().equals(nuevo.getPassword())){
 				test = false;
 			}
 			
