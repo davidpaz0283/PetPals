@@ -40,10 +40,10 @@ public class MainPrice {
 			break;
 		case 3:
 			Precio encontrado = BuscarPrecio(controlar);
-			String nuevoTarifa_corte_de_pelo = JOptionPane.showInputDialog("Nombre de la mascota: " + encontrado.getTarifa_corte_de_pelo());
-			String nuevoTarifa_paseos = JOptionPane.showInputDialog("edad de la mascota " + encontrado.getTarifa_paseos());
-			String nuevoTarifa_baños = JOptionPane.showInputDialog("Especie: " + encontrado.getTarifa_baños());
-			String nuevoTarifa_alojamiento = JOptionPane.showInputDialog("Especie: " + encontrado.getTarifa_alojamiento());
+			String nuevoTarifa_corte_de_pelo = JOptionPane.showInputDialog("Tarifa corte de pelo: " + encontrado.getTarifa_corte_de_pelo());
+			String nuevoTarifa_paseos = JOptionPane.showInputDialog("Tarifa paseos: " + encontrado.getTarifa_paseos());
+			String nuevoTarifa_baños = JOptionPane.showInputDialog("Tarifa baños: " + encontrado.getTarifa_baños());
+			String nuevoTarifa_alojamiento = JOptionPane.showInputDialog("Tarifa alojamiento: " + encontrado.getTarifa_alojamiento());
 			encontrado.setTarifa_corte_de_pelo(nuevoTarifa_corte_de_pelo);
 			encontrado.setTarifa_paseos(nuevoTarifa_paseos);
 			encontrado.setTarifa_baños(nuevoTarifa_baños);
