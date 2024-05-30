@@ -37,10 +37,10 @@ public class MainSuministro {
 			break;
 		case 3:
 			Suministro encontrado = BuscarSuministro(controlar);
-			String nuevoSuministro_peluqueria = JOptionPane.showInputDialog("Que se necesita? " + encontrado.getSuministro_peluqueria());
-			String nuevoSuministro_higiene = JOptionPane.showInputDialog("Que se necesita? " + encontrado.getSuministro_higiene());
-			String nuevoSuministro_paseos = JOptionPane.showInputDialog("Que se necesita? " + encontrado.getSuministro_paseos());
-			String nuevoSuministro_alojamiento = JOptionPane.showInputDialog("Que se necesita? " + encontrado.getSuministro_alojamiento());
+			String nuevoSuministro_peluqueria = JOptionPane.showInputDialog("Que elemento de peluqueria se necesita? " + encontrado.getSuministro_peluqueria());
+			String nuevoSuministro_higiene = JOptionPane.showInputDialog("Que elemento de higiene se necesit? " + encontrado.getSuministro_higiene());
+			String nuevoSuministro_paseos = JOptionPane.showInputDialog("Que elemento de paseo se necesita? " + encontrado.getSuministro_paseos());
+			String nuevoSuministro_alojamiento = JOptionPane.showInputDialog("Que se necesita para el alojamiento de animales? " + encontrado.getSuministro_alojamiento());
 			encontrado.setSuministro_peluqueria(nuevoSuministro_peluqueria);
 			encontrado.setSuministro_higiene(nuevoSuministro_higiene);
 			encontrado.setSuministro_paseos(nuevoSuministro_paseos);

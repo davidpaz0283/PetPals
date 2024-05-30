@@ -39,9 +39,9 @@ public class MainCustomer {
 			break;
 		case 3:
 			Cliente encontrado = BuscarCliente(controlar);
-			String nuevoNombreYApellido = JOptionPane.showInputDialog("Nombre de la mascota: " + encontrado.getNombreYApellido());
-			String nuevoDomicilio = JOptionPane.showInputDialog("edad de la mascota " + encontrado.getDomicilio());
-			String nuevoTelefono = JOptionPane.showInputDialog("Especie: " + encontrado.getTelefono());
+			String nuevoNombreYApellido = JOptionPane.showInputDialog("Nombre y Apellido del Cliente: " + encontrado.getNombreYApellido());
+			String nuevoDomicilio = JOptionPane.showInputDialog("Domicilio del Cliente " + encontrado.getDomicilio());
+			String nuevoTelefono = JOptionPane.showInputDialog("Teléfono del Cliente: " + encontrado.getTelefono());
 			encontrado.setNombreYApellido(nuevoNombreYApellido);
 			encontrado.setDomicilio(nuevoDomicilio);
 			encontrado.setTelefono(nuevoTelefono);
