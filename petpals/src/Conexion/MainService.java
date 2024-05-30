@@ -13,7 +13,7 @@ public class MainService {
 		
 		
 		String[] opciones = {
-				"Agregar servicio","Ver servicio","Buscar servicio por id","Editar servicio","Eliminar servicio","Salir"
+				"Agregar Servicio","Ver Servicio","Buscar Servicio por id","Editar Servicio","Eliminar Servicio","Salir"
 		};
 		int opcion=0;
 	do {
@@ -22,10 +22,10 @@ public class MainService {
 		switch (opcion) {
 		case 0:
 			
-			String corte_de_pelo = JOptionPane.showInputDialog("Necesita corte de pelo? ");
-			String baño = JOptionPane.showInputDialog("Necesita baño? ");
-			String paseo = JOptionPane.showInputDialog("Necesita paseo? ");
-			String alojamiento = JOptionPane.showInputDialog("Necesita alojamiento? ");
+			String corte_de_pelo = JOptionPane.showInputDialog("El animal necesita un corte de pelo? ");
+			String baño = JOptionPane.showInputDialog("El animal necesita un corte de pelo? ");
+			String paseo = JOptionPane.showInputDialog("El animal necesita un paseo? ");
+			String alojamiento = JOptionPane.showInputDialog("El animal necesita alojamiento? ");
 			controlar.addService(new Servicio(opcion, corte_de_pelo,baño,paseo,alojamiento));		
 			break;
 		case 1:
