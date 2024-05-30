@@ -51,7 +51,7 @@ public class ServicioControlador implements ServiceRepository {
 	            
 	            if (resultSet.next()) {
 	                service = new Servicio(resultSet.getInt("id"), resultSet.getString("corte_de_pelo"), 
-	            			resultSet.getString("baño"), resultSet.getString("paseo"), resultSet.getString("alojamiento"));
+	                		resultSet.getString("baño"), resultSet.getString("paseo"), resultSet.getString("alojamiento"));
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
@@ -63,7 +63,7 @@ public class ServicioControlador implements ServiceRepository {
 		@Override
 		 public void addService(Servicio servicio) {
 	        try {
-	            PreparedStatement statement = connection.prepareStatement("INSERT INTO servicio (corte_de_pelo, baño, paseo, alojamiento) VALUES (?, ?, ?, ?, ?)");
+	            PreparedStatement statement = connection.prepareStatement("INSERT INTO servicio (corte_de_pelo, baño, paseo, alojamiento) VALUES (?, ?, ?, ?)");
 	            statement.setString(1, servicio.getCorte_de_pelo());
 	            statement.setString(2, servicio.getBaño());
 	            statement.setString(3, servicio.getPaseo());
@@ -86,7 +86,7 @@ public class ServicioControlador implements ServiceRepository {
 	            statement.setString(2, servicio.getBaño());
 	            statement.setString(3, servicio.getPaseo());
 	            statement.setString(4, servicio.getAlojamiento());
-	            statement.setInt(3, servicio.getId());
+	            statement.setInt(5, servicio.getId());
 	            
 	            int rowsUpdated = statement.executeUpdate();
 	            if (rowsUpdated > 0) {
