@@ -13,7 +13,7 @@ public class MainRegister {
 		
 		
 		String[] opciones = {
-				"Agregar registro","Ver registro","Buscar registro por id","Editar registro","Eliminar registro","Salir"
+				"Agregar Registro","Ver Registro","Buscar Registro por id","Editar Registro","Eliminar Registro","Salir"
 		};
 		int opcion=0;
 	do {
