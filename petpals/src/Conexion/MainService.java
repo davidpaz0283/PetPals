@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import Controlador.ServicioControlador;
 import Modelo.Servicio;
 
-public class Main {
+public class MainService {
 	public static void main(String[] args) {
 		
 		
