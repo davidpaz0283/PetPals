@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Interfaces.UserRepository;
 import Modelo.Usuario;
 
+
+@SuppressWarnings("unused")
 public class UsuarioControlador {
 	
 	
@@ -18,7 +21,7 @@ public class UsuarioControlador {
 		this.connection = DatabaseConnection.getInstance().getConnection();
 		
 	}
-		public List<Usuario> getAllUsers(){
+	public List<Usuario> getAllUsers(){
 			List<Usuario> Usuarios = new ArrayList<>();
 			try {
 			PreparedStatement statement = connection.prepareStatement("SELECT * FROM usuario ");
@@ -35,7 +38,6 @@ public class UsuarioControlador {
         }
         return Usuarios;
 			}
-
 	public Usuario getPriceById(int id) {
 	Usuario Usuario = null;
     try {
@@ -54,8 +56,7 @@ public class UsuarioControlador {
     return Usuario;
 }
 
-
-public void addUser(Usuario Usuario) {
+	public void addUser(Usuario Usuario) {
     try {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO usuario (username, password, privilegio) VALUES (?, ?, ?, )");
         statement.setString(1, Usuario.getUsername());
@@ -70,8 +71,7 @@ public void addUser(Usuario Usuario) {
         e.printStackTrace();
     }
 }
-
-public void updateUser(Usuario Usuario) {
+	public void updateUser(Usuario Usuario) {
     try {
         PreparedStatement statement = connection.prepareStatement("UPDATE usuario SET username = ?, password = ?, privilegio = ? WHERE id = ?");
         statement.setString(1, Usuario.getUsername());
@@ -87,8 +87,7 @@ public void updateUser(Usuario Usuario) {
         e.printStackTrace();
     }
 }
-
-public void deleteUser(int id) {
+	public void deleteUser(int id) {
     try {
         PreparedStatement statement = connection.prepareStatement("DELETE FROM usuario WHERE id = ?");
         statement.setInt(1, id);
@@ -101,5 +100,6 @@ public void deleteUser(int id) {
         e.printStackTrace();
     }
 }
+
 }
 	
