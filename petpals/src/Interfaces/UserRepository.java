@@ -2,7 +2,7 @@ package Interfaces;
 
 import java.util.List;
 
-import Modelo.Usuario;
+import Conexion.Usuario;
 
 
 public interface UserRepository {

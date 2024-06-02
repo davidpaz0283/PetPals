@@ -1,11 +1,11 @@
-package Conexion;
+package Vistas;
 
 import javax.swing.JOptionPane;
 
 import Controlador.RegistroControlador;
 import Modelo.Registro;
 
-public class MainRegister {
+public class Register {
 	public static void main(String[] args) {
 		
 		

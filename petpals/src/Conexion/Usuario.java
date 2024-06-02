@@ -1,4 +1,4 @@
-package Modelo;
+package Conexion;
 
 public class Usuario {
 	private int id;
@@ -11,6 +11,11 @@ public class Usuario {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.privilegio = privilegio;
+	}
+	
+	public Usuario(String username, String privilegio) {
+		this.username = username;
 		this.privilegio = privilegio;
 	}
 

@@ -1,11 +1,11 @@
-package Conexion;
+package Vistas;
 
 import javax.swing.JOptionPane;
 
+import Conexion.Usuario;
 import Controlador.UsuarioControlador;
-import Modelo.Usuario;
 
-public class MainUser {
+public class User {
 	public static void main(String[] args) {
 		
 		

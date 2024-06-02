@@ -1,11 +1,11 @@
-package Conexion;
+package Vistas;
 
 import javax.swing.JOptionPane;
 
 import Controlador.ServicioControlador;
 import Modelo.Servicio;
 
-public class MainService {
+public class Service {
 	public static void main(String[] args) {
 		
 		

@@ -1,4 +1,4 @@
-package Conexion;
+package Vistas;
 
 import javax.swing.JOptionPane;
 
@@ -8,7 +8,7 @@ import Modelo.Precio;
 
 
 
-public class MainPrice {
+public class Price {
 	public static void main(String[] args) {
 		
 		

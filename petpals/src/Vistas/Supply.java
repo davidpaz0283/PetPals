@@ -1,11 +1,12 @@
-package Conexion;
+package Vistas;
 
 import javax.swing.JOptionPane;
 
 import Controlador.SuministroControlador;
 import Modelo.Suministro;
 
-public class MainSuministro {
+
+public class Supply {
 	public static void main(String[] args) {
 		
 		
@@ -26,10 +27,10 @@ public class MainSuministro {
 			String suministro_higiene = JOptionPane.showInputDialog("Que elemento de higiene se necesita? ");
 			String suministro_paseos = JOptionPane.showInputDialog("Que elemento de paseo se necesita? ");
 			String suministro_alojamiento = JOptionPane.showInputDialog("Que se necesita para el alojamiento de animales? ");
-			controlar.addSupplie(new Suministro(opcion, suministro_peluqueria,suministro_higiene,suministro_paseos,suministro_alojamiento));		
+			controlar.addSupply(new Suministro(opcion, suministro_peluqueria,suministro_higiene,suministro_paseos,suministro_alojamiento));		
 			break;
 		case 1:
-			JOptionPane.showMessageDialog(null, controlar.getAllSupplie());	
+			JOptionPane.showMessageDialog(null, controlar.getAllSupply());	
 			break;
 		case 2:
 			Suministro nuevo = BuscarSuministro(controlar);
@@ -45,11 +46,11 @@ public class MainSuministro {
 			encontrado.setSuministro_higiene(nuevoSuministro_higiene);
 			encontrado.setSuministro_paseos(nuevoSuministro_paseos);
 			encontrado.setSuministro_alojamiento(nuevoSuministro_alojamiento);
-			controlar.updateSupplie(encontrado);
+			controlar.updateSupply(encontrado);
 			break;
 		case 4:
 			Suministro eliminar = BuscarSuministro(controlar);
-			controlar.deleteSupplie(eliminar.getId());
+			controlar.deleteSupply(eliminar.getId());
 			break;
 		case 5:
 			JOptionPane.showMessageDialog(null, "Salir");
@@ -61,15 +62,15 @@ public class MainSuministro {
 		
 	}
 	public static Suministro BuscarSuministro(SuministroControlador controlar) {
-		String[] listasuministros = new String[controlar.getAllSupplie().size()];
+		String[] listasuministros = new String[controlar.getAllSupply().size()];
 		
 		
 		for (int i = 0; i < listasuministros.length; i++) {
-			listasuministros[i] = Integer.toString(controlar.getAllSupplie().get(i).getId());
+			listasuministros[i] = Integer.toString(controlar.getAllSupply().get(i).getId());
 		}
 		String elegido =(String) JOptionPane.showInputDialog(null, "Elija un id", null, 0, null, listasuministros, listasuministros[0]);
 		
-		Suministro nuevo = controlar.getSupplieById(Integer.parseInt(elegido));
+		Suministro nuevo = controlar.getSupplyById(Integer.parseInt(elegido));
 		return nuevo;
 	}
 }

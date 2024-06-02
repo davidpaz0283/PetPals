@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Interfaces.SupplieRepository;
+import Interfaces.SupplyRepository;
 import Modelo.Suministro;
 
 
 
 
 
-public class SuministroControlador implements SupplieRepository {
+public class SuministroControlador implements SupplyRepository {
 	 private final Connection connection;
 
 	    public SuministroControlador() {
@@ -22,7 +22,7 @@ public class SuministroControlador implements SupplieRepository {
 	    }
 
 		@Override
-		public List<Suministro> getAllSupplie() {
+		public List<Suministro> getAllSupply() {
 			List<Suministro> Suministros = new ArrayList<>();
 	        try {
 	            PreparedStatement statement = connection.prepareStatement("SELECT * FROM suministro ");
@@ -41,7 +41,7 @@ public class SuministroControlador implements SupplieRepository {
 		}
 
 		@Override
-		public Suministro getSupplieById(int id) {
+		public Suministro getSupplyById(int id) {
 			Suministro Supplie = null;
 	        try {
 	            PreparedStatement statement = connection.prepareStatement("SELECT * FROM suministro WHERE id = ?");
@@ -61,7 +61,7 @@ public class SuministroControlador implements SupplieRepository {
 		
 
 		@Override
-		 public void addSupplie(Suministro Suministro) {
+		 public void addSupply(Suministro Suministro) {
 	        try {
 	            PreparedStatement statement = connection.prepareStatement("INSERT INTO suministro (suministro_peluqueria, suministro_higiene, suministro_paseos, suministro_alojamiento) VALUES (?, ?, ?, ?)");
 	            statement.setString(1, Suministro.getSuministro_peluqueria());
@@ -79,7 +79,7 @@ public class SuministroControlador implements SupplieRepository {
 	    }
 
 		@Override
-		   public void updateSupplie(Suministro Suministro) {
+		   public void updateSupply(Suministro Suministro) {
 	        try {
 	            PreparedStatement statement = connection.prepareStatement("UPDATE suministro SET corte_de_pelo = ?, baño = ?, paseo = ?, alojamiento = ? WHERE id = ?");
 	            statement.setString(1, Suministro.getSuministro_peluqueria());
@@ -98,7 +98,7 @@ public class SuministroControlador implements SupplieRepository {
 	    }
 
 		@Override
-		public void deleteSupplie(int id) {
+		public void deleteSupply(int id) {
 	        try {
 	            PreparedStatement statement = connection.prepareStatement("DELETE FROM suministro WHERE id = ?");
 	            statement.setInt(1, id);
@@ -110,6 +110,7 @@ public class SuministroControlador implements SupplieRepository {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
-	    }
+			
+		}
 	  
 	}

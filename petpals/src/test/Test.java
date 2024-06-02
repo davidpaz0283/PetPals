@@ -2,8 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import Conexion.Usuario;
 import Controlador.UsuarioControlador;
-import Modelo.Usuario;
 
 public class Test {
 	public void TestUsuarioExistentes() {

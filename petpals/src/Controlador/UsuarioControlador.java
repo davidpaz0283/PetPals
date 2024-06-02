@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Conexion.Usuario;
 import Interfaces.UserRepository;
-import Modelo.Usuario;
 
 
 @SuppressWarnings("unused")
@@ -100,6 +100,10 @@ public class UsuarioControlador {
         e.printStackTrace();
     }
 }
+	public Usuario getUserById(int int1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 	
