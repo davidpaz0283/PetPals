@@ -4,18 +4,23 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import java.awt.Color;
+import javax.swing.JButton;
 
 public class PantallaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField InputNombre;
+	private JTextField InputContraseña;
 
 	/**
 	 * Launch the application.
@@ -37,9 +42,11 @@ public class PantallaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public PantallaPrincipal() {
+		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 479, 323);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(0, 0, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -50,32 +57,60 @@ public class PantallaPrincipal extends JFrame {
 		lblNewLabel.setBounds(104, 11, 228, 34);
 		contentPane.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(104, 89, 198, 27);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		InputNombre = new JTextField();
+		InputNombre.setBounds(119, 89, 198, 27);
+		contentPane.add(InputNombre);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(104, 180, 198, 27);
-		contentPane.add(textField_1);
+		InputContraseña = new JPasswordField();
+		InputContraseña.setBounds(119, 180, 198, 27);
+		contentPane.add(InputContraseña);
 		
-		JLabel lblNewLabel_1 = new JLabel("Username");
-		lblNewLabel_1.setBounds(104, 71, 55, 14);
+		JButton btnNewButton = new JButton("Enviar");
+		
+		btnNewButton.setBounds(119, 240, 198, 27);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("Nombre de Usuario");
+		lblNewLabel_1.setBounds(119, 71, 198, 14);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Email");
-		lblNewLabel_1_1.setBounds(104, 161, 56, 14);
+		JLabel lblNewLabel_1_1 = new JLabel("Contraseña");
+		lblNewLabel_1_1.setBounds(119, 161, 198, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("No se encontró el Usuario");
-		lblNewLabel_2.setForeground(new Color(255, 0, 0));
-		lblNewLabel_2.setBounds(104, 119, 185, 14);
-		contentPane.add(lblNewLabel_2);
+		JLabel errorNombre = new JLabel("No se encontró el Usuario");
+		errorNombre.setForeground(new Color(255, 0, 0));
+		errorNombre.setBounds(119, 119, 198, 14);
+		contentPane.add(errorNombre);
+		errorNombre.setVisible(false);
 		
-		JLabel lblNewLabel_3 = new JLabel("Contraseña Incorrecta");
-		lblNewLabel_3.setForeground(new Color(255, 0, 0));
-		lblNewLabel_3.setBounds(104, 210, 170, 14);
-		contentPane.add(lblNewLabel_3);
+		JLabel errorContraseña = new JLabel("Contraseña Incorrecta");
+		errorContraseña.setForeground(new Color(255, 0, 0));
+		errorContraseña.setBounds(119, 210, 198, 14);
+		contentPane.add(errorContraseña);
+		errorContraseña.setVisible(false);
+		btnNewButton.addActionListener(new ActionListener() { 	
+			public void actionPerformed(ActionEvent e) {
+				boolean flag=true;
+				if(InputNombre.getText().isEmpty()) {
+					errorNombre.setVisible(true);
+					flag=false;
+				} else {
+					errorNombre.setVisible(false);
+				}
+				if(InputContraseña.getText().isEmpty()) {
+					errorContraseña.setVisible(true);
+					flag=false;
+				} else {
+					errorContraseña.setVisible(false);
+				}
+				if(flag) {
+					Home nuevo = new Home(InputNombre.getText());
+					dispose();
+			}
+			}
+		
+			});
 	}
 }
+
