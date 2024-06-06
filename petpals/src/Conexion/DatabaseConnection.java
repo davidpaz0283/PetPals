@@ -1,4 +1,4 @@
-package Controlador;
+package Conexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,7 +14,7 @@ public class DatabaseConnection {
     
     private Connection connection;
     
-    //genera la bdd cuanto usa el constructor
+    
     private DatabaseConnection() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);

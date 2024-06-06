@@ -2,8 +2,10 @@ package Vistas;
 
 import javax.swing.JOptionPane;
 
-import Conexion.Usuario;
 import Controlador.UsuarioControlador;
+import Modelo.Usuario;
+
+
 
 public class User {
 	public static void main(String[] args) {
@@ -22,11 +24,10 @@ public class User {
 		switch (opcion) {
 		case 0:
 			
-			String Username = JOptionPane.showInputDialog("Cual es el usuario? ");
-			String Password = JOptionPane.showInputDialog("Cual es la contraseña? ");
-			String Privilegio = JOptionPane.showInputDialog("Cual es el privilegio? ");
+			String Name = JOptionPane.showInputDialog("Nombre de usuario: ");
+			String Email = JOptionPane.showInputDialog("Email: ");
 		
-			controlar.addUser(new Usuario(opcion, Username,Password,Privilegio));		
+			controlar.addUser(new Usuario(opcion, Name,Email));		
 			break;
 		case 1:
 			JOptionPane.showMessageDialog(null, controlar.getAllUsers());	
@@ -37,13 +38,11 @@ public class User {
 			break;
 		case 3:
 			Usuario encontrado = BuscarUsuario(controlar);
-			String nuevoUsername = JOptionPane.showInputDialog("Cual es el usuario? " + encontrado.getUsername());
-			String nuevoPassword = JOptionPane.showInputDialog("Cual es la contraseña? " + encontrado.getPassword());
-			String nuevoPrivilegio = JOptionPane.showInputDialog("Cual es el privilegio? " + encontrado.getPrivilegio());
+			String nuevoName = JOptionPane.showInputDialog("Nombre de usuario: " + encontrado.getName());
+			String nuevoEmail = JOptionPane.showInputDialog("Email: " + encontrado.getEmail());
 			
-			encontrado.setUsername(nuevoUsername);
-			encontrado.setPassword(nuevoPassword);
-			encontrado.setPrivilegio(nuevoPrivilegio);
+			encontrado.setName(nuevoName);
+			encontrado.setEmail(nuevoEmail);
 			
 			controlar.updateUser(encontrado);
 			break;

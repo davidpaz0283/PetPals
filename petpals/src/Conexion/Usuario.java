@@ -2,61 +2,40 @@ package Conexion;
 
 public class Usuario {
 	private int id;
-	private String username;
-	private String password;
-	private String privilegio;
-	
-	public Usuario(int id, String username, String password, String privilegio) {
+	private String nombre;
+	private String email;
+	public Usuario(int id, String nombre, String email) {
 		super();
 		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.privilegio = privilegio;
+		this.nombre = nombre;
+		this.email = email;
 	}
-	
-	public Usuario(String username, String privilegio) {
-		this.username = username;
-		this.privilegio = privilegio;
+	public Usuario(String nombre, String email) {
+		this.nombre = nombre;
+		this.email = email;
 	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String getUsername() {
-		return username;
+	public String getNombre() {
+		return nombre;
 	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-
-	public String getPassword() {
-		return password;
+	public String getEmail() {
+		return email;
 	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
-	public String getPrivilegio() {
-		return privilegio;
-	}
-
-	public void setPrivilegio(String privilegio) {
-		this.privilegio = privilegio;
-	}
-
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", username=" + username + ", password=" + password + ", privilegio=" + privilegio
-				+ "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", email=" + email + "]\n";
 	}
-
-
 	
 }
+

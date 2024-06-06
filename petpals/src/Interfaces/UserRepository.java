@@ -2,19 +2,17 @@ package Interfaces;
 
 import java.util.List;
 
-import Conexion.Usuario;
-
+import Modelo.Usuario;
 
 public interface UserRepository {
 	
-    List<Usuario> getAllUser(); 
+    List<Usuario> getAllUsers(); 
     
     Usuario getUserById(int id); 
     
-    void addUser(Usuario User); 
+    void addUser(Usuario user); 
     
-    void updateUser(Usuario User); 
+    void updateUser(Usuario user); 
     
-    void deleteUser(int id);
-
+    void deleteUser(int id); 
 }
