@@ -69,6 +69,7 @@ public class Usuario {
 			
 			for (Usuario usuario : controlador.getAllUsers()) {
 				if (usuario.getName().equals(name) && usuario.getEmail().equals(mail)) {
+					return "Ingresa";
 				}
 			}
 			return "No se encontró";

@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
+
+import Modelo.Usuario;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -44,7 +47,7 @@ public class PantallaPrincipal extends JFrame {
 	public PantallaPrincipal() {
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 479, 323);
+		setBounds(100, 100, 499, 350);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(0, 0, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -54,60 +57,60 @@ public class PantallaPrincipal extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Bienvenidos");
 		lblNewLabel.setFont(new Font("Roboto Lt", Font.BOLD | Font.ITALIC, 35));
-		lblNewLabel.setBounds(104, 11, 228, 34);
+		lblNewLabel.setBounds(119, 11, 228, 34);
 		contentPane.add(lblNewLabel);
 		
 		InputNombre = new JTextField();
-		InputNombre.setBounds(119, 89, 198, 27);
+		InputNombre.setBounds(119, 72, 198, 27);
 		contentPane.add(InputNombre);
 		
 		InputContraseña = new JPasswordField();
-		InputContraseña.setBounds(119, 180, 198, 27);
+		InputContraseña.setBounds(119, 133, 198, 27);
 		contentPane.add(InputContraseña);
 		
-		JButton btnNewButton = new JButton("Enviar");
+		JButton Ingresar = new JButton("Ingresar");
 		
-		btnNewButton.setBounds(119, 240, 198, 27);
-		contentPane.add(btnNewButton);
+		Ingresar.setBounds(129, 183, 170, 27);
+		contentPane.add(Ingresar);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre de Usuario");
-		lblNewLabel_1.setBounds(119, 71, 198, 14);
+		lblNewLabel_1.setBounds(119, 56, 198, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Contraseña");
-		lblNewLabel_1_1.setBounds(119, 161, 198, 14);
+		lblNewLabel_1_1.setBounds(119, 118, 198, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
-		JLabel errorNombre = new JLabel("No se encontró el Usuario");
-		errorNombre.setForeground(new Color(255, 0, 0));
-		errorNombre.setBounds(119, 119, 198, 14);
-		contentPane.add(errorNombre);
-		errorNombre.setVisible(false);
+		JLabel Error = new JLabel("");
+		Error.setForeground(new Color(255, 0, 0));
+		Error.setBounds(119, 164, 198, 14);
+		contentPane.add(Error);
+		Error.setVisible(false);
 		
-		JLabel errorContraseña = new JLabel("Contraseña Incorrecta");
-		errorContraseña.setForeground(new Color(255, 0, 0));
-		errorContraseña.setBounds(119, 210, 198, 14);
-		contentPane.add(errorContraseña);
-		errorContraseña.setVisible(false);
-		btnNewButton.addActionListener(new ActionListener() { 	
+		JButton Registrarse = new JButton("Registrarse");
+		Registrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean flag=true;
-				if(InputNombre.getText().isEmpty()) {
-					errorNombre.setVisible(true);
-					flag=false;
-				} else {
-					errorNombre.setVisible(false);
-				}
-				if(InputContraseña.getText().isEmpty()) {
-					errorContraseña.setVisible(true);
-					flag=false;
-				} else {
-					errorContraseña.setVisible(false);
-				}
-				if(flag) {
-					Home nuevo = new Home(InputNombre.getText());
-					dispose();
+				
+				Registro registro = new Registro();
+				dispose();
+				
 			}
+		});
+		Registrarse.setBounds(129, 221, 170, 27);
+		contentPane.add(Registrarse);
+		Error.setVisible(false);
+		Ingresar.addActionListener(new ActionListener() { 	
+			public void actionPerformed(ActionEvent e) {
+				String respuesta = Usuario.IniciarSesion(InputNombre.getText(), InputContraseña.getText());
+				if (respuesta.equals("Ingresa")) {
+					Home home = new Home(InputNombre.getText());
+					dispose();
+				} else {
+					Error.setText(respuesta);
+					Error.setVisible(true);
+				}
+				
+					
 			}
 		
 			});
