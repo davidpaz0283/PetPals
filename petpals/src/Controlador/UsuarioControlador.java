@@ -30,7 +30,7 @@ public class UsuarioControlador implements UserRepository {
        
             
             while (resultSet.next()) {
-            	Usuario user = new Usuario(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"));
+            	Usuario user = new Usuario(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"), resultSet.getInt("rol"));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -49,7 +49,7 @@ public class UsuarioControlador implements UserRepository {
             ResultSet resultSet = statement.executeQuery();
             
             if (resultSet.next()) {
-                user = new Usuario(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"));
+                user = new Usuario(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("email"),resultSet.getInt("rol") );
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -60,9 +60,10 @@ public class UsuarioControlador implements UserRepository {
 	@Override
     public void addUser(Usuario usuario) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO usuario (name, email) VALUES (?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO usuario (name, email, rol) VALUES (?, ?, ?)");
             statement.setString(1, usuario.getName());
             statement.setString(2, usuario.getEmail());
+            statement.setInt(3, 1);
             
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
@@ -74,20 +75,27 @@ public class UsuarioControlador implements UserRepository {
     }
 
 	@Override
-    public void updateUser(Usuario usuario) {
+    public boolean updateUser(Usuario usuario) {
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE usuario SET name = ?, email = ? WHERE id = ?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE usuario SET name = ?, email = ?, rol = ? WHERE id = ?");
             statement.setString(1, usuario.getName());
             statement.setString(2, usuario.getEmail());
-            statement.setInt(3, usuario.getId());
+            statement.setInt(3, usuario.getRol());
+            statement.setInt(4, usuario.getId());
+            
             
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated > 0) {
                 System.out.println("Usuario actualizado exitosamente");
+                return true;
+               
             }
+            return false;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
+		
     }
 
     @Override

@@ -26,8 +26,9 @@ public class User {
 			
 			String Name = JOptionPane.showInputDialog("Nombre de usuario: ");
 			String Email = JOptionPane.showInputDialog("Email: ");
+			
 		
-			controlar.addUser(new Usuario(opcion, Name,Email));		
+			controlar.addUser(new Usuario(opcion, Name,Email, opcion));		
 			break;
 		case 1:
 			JOptionPane.showMessageDialog(null, controlar.getAllUsers());	

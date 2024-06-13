@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Vistas.tabla;
+
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
@@ -36,6 +39,18 @@ public class Home extends JFrame {
 		lblNewLabel.setBounds(76, 11, 374, 53);
 		contentPane.add(lblNewLabel);
 		
+		JButton verusuarios = new JButton("Ver usuarios");
+		
+		verusuarios.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				tabla nueva = new tabla();
+				dispose();
+				
 			}
+		});
+		verusuarios.setBounds(54, 110, 153, 23);
+		contentPane.add(verusuarios);
 	}
 
+}

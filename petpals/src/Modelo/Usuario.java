@@ -6,13 +6,15 @@ public class Usuario {
 	private int id;
 	private String name;
 	private String email;
+	private int rol;
 	
 
-	public Usuario(int id, String name, String email) {
+	public Usuario(int id, String name, String email, int rol) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
+		this.rol = rol;
 		
 	}
 
@@ -51,12 +53,18 @@ public class Usuario {
 	}
 
 	
+	public int getRol() {
+		return rol;
+	}
+
+	public void setRol(int rol) {
+		this.rol = rol;
 	
-	
+	}
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return "Usuario [id=" + id + ", name=" + name + ", email=" + email + " + rol=" + rol + "]";
 	}
 
 	public static String IniciarSesion(String name, String mail) {
@@ -69,7 +77,7 @@ public class Usuario {
 			
 			for (Usuario usuario : controlador.getAllUsers()) {
 				if (usuario.getName().equals(name) && usuario.getEmail().equals(mail)) {
-					return "Ingresa";
+					return "rol:" + usuario.getRol();
 				}
 			}
 			return "No se encontró";

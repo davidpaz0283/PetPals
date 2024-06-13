@@ -25,9 +25,6 @@ public class PantallaPrincipal extends JFrame {
 	private JTextField InputNombre;
 	private JTextField InputContraseña;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,9 +38,6 @@ public class PantallaPrincipal extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public PantallaPrincipal() {
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,6 +81,8 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(Error);
 		Error.setVisible(false);
 		
+		
+		
 		JButton Registrarse = new JButton("Registrarse");
 		Registrarse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -101,16 +97,22 @@ public class PantallaPrincipal extends JFrame {
 		Error.setVisible(false);
 		Ingresar.addActionListener(new ActionListener() { 	
 			public void actionPerformed(ActionEvent e) {
-				String respuesta = Usuario.IniciarSesion(InputNombre.getText(), InputContraseña.getText());
-				if (respuesta.equals("Ingresa")) {
-					Home home = new Home(InputNombre.getText());
-					dispose();
-				} else {
-					Error.setText(respuesta);
-					Error.setVisible(true);
-				}
 				
-					
+				String respuesta = Usuario.IniciarSesion(InputNombre.getText(),InputContraseña.getText());
+				 if(respuesta.equals("rol:1")) {
+					 
+					 Home home = new Home(InputNombre.getText());
+					 dispose();
+				 }else if(respuesta.equals("rol:2")) {
+					 
+					 Admin admin = new Admin();
+					 dispose();
+				 }{
+					 Error.setText(respuesta);
+					 Error.setVisible(true);
+
+				 }
+				
 			}
 		
 			});
