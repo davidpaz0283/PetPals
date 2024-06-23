@@ -41,8 +41,7 @@ public class Precio {
 	public void setTarifa_alojamiento(String tarifa_alojamiento) {
 		this.tarifa_alojamiento = tarifa_alojamiento;
 	}
-	public Precio(int id, String tarifa_corte_de_pelo, String tarifa_paseos, String tarifa_baños,
-			String tarifa_alojamiento) {
+	public Precio(int id, String tarifa_corte_de_pelo, String tarifa_paseos, String tarifa_baños, String tarifa_alojamiento) {
 		super();
 		this.id = id;
 		this.tarifa_corte_de_pelo = tarifa_corte_de_pelo;
@@ -50,7 +49,9 @@ public class Precio {
 		this.tarifa_baños = tarifa_baños;
 		this.tarifa_alojamiento = tarifa_alojamiento;
 	}
-	
-	
-	
+	public Precio() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 }

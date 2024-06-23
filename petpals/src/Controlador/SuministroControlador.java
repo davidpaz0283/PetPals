@@ -79,9 +79,9 @@ public class SuministroControlador implements SupplyRepository {
 	    }
 
 		@Override
-		   public void updateSupply(Suministro Suministro) {
+		   public boolean updateSupply(Suministro Suministro) {
 	        try {
-	            PreparedStatement statement = connection.prepareStatement("UPDATE suministro SET corte_de_pelo = ?, baño = ?, paseo = ?, alojamiento = ? WHERE id = ?");
+	            PreparedStatement statement = connection.prepareStatement("UPDATE suministro SET suministro_peluqueria = ?, suministro_higiene = ?, suministro_paseos = ?, suministro_alojamiento = ? WHERE id = ?");
 	            statement.setString(1, Suministro.getSuministro_peluqueria());
 	            statement.setString(2, Suministro.getSuministro_higiene());
 	            statement.setString(3, Suministro.getSuministro_paseos());
@@ -95,6 +95,7 @@ public class SuministroControlador implements SupplyRepository {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
+			return false;
 	    }
 
 		@Override

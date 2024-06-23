@@ -32,6 +32,9 @@ public class Registro {
 		this.edad_mascota = edad_mascota;
 		this.especie = especie;
 	}
+	public Registro() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Servicio [nombre_mascota= " + nombre_mascota + ", edad_mascota=" + edad_mascota + ", especie=" + especie + "]";

@@ -80,7 +80,7 @@ public class ServicioControlador implements ServiceRepository {
 	    }
 
 		@Override
-		   public void updateService(Servicio servicio) {
+		   public boolean updateService(Servicio servicio) {
 	        try {
 	            PreparedStatement statement = connection.prepareStatement("UPDATE servicio SET corte_de_pelo = ?, baño = ?, paseo = ?, alojamiento = ? WHERE id = ?");
 	            statement.setString(1, servicio.getCorte_de_pelo());
@@ -96,6 +96,7 @@ public class ServicioControlador implements ServiceRepository {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
+			return false;
 	    }
 
 		@Override

@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
-public class Admin extends JFrame {
+public class ClienteAdm extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -20,7 +20,7 @@ public class Admin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Admin() {
+	public ClienteAdm() {
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -30,8 +30,8 @@ public class Admin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Bienvenido admin");
-		lblNewLabel.setBounds(109, 81, 377, 101);
+		JLabel lblNewLabel = new JLabel("Bienvenido señor Cliente");
+		lblNewLabel.setBounds(150, 50, 377, 101);
 		contentPane.add(lblNewLabel);
 	}
 

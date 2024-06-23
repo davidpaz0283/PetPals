@@ -40,6 +40,9 @@ public class Suministro {
 		this.suministro_paseos = suministro_paseos;
 		this.suministro_alojamiento = suministro_alojamiento;
 	}
+	public Suministro() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Suministro [suministro_peluqueria= " + suministro_peluqueria + ", suministro_higiene=" + suministro_higiene + ", suministro_paseos=" + suministro_paseos + ", suministro_alojamiento="

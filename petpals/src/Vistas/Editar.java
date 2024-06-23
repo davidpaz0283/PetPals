@@ -36,32 +36,39 @@ public class Editar extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Nombre");
-		lblNewLabel.setBounds(148, 49, 46, 14);
+		lblNewLabel.setBounds(148, 30, 46, 14);
 		contentPane.add(lblNewLabel);
 		
 		inpNombre = new JTextField();
-		inpNombre.setBounds(37, 74, 268, 20);
+		inpNombre.setBounds(80, 50, 268, 20);
 		contentPane.add(inpNombre);
 		inpNombre.setColumns(10);
 		inpNombre.setText(usuario.getName());
 		
+		JLabel lblNewLabel2 = new JLabel("Rol");
+		lblNewLabel2.setBounds(148, 80, 46, 14);
+		contentPane.add(lblNewLabel2);
+		
 		JTextField inpid= new JTextField();
-		inpid.setBounds(33, 94, 300, 30);
+		inpid.setBounds(80, 100, 268, 20);
 		contentPane.add(inpid);
 		inpid.setColumns(10);
 		inpid.setText(Integer.toString(usuario.getRol()));
-		JLabel lblNewLabel_1 = new JLabel("Mail");
-		lblNewLabel_1.setBounds(148, 106, 46, 14);
-		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel3 = new JLabel("Mail");
+		lblNewLabel3.setBounds(148, 130, 46, 14);
+		contentPane.add(lblNewLabel3);
 		
 		inpMail = new JTextField();
-		inpMail.setBounds(37, 131, 268, 20);
+		inpMail.setBounds(80, 150, 268, 20);
 		contentPane.add(inpMail);
 		inpMail.setColumns(10);
 		inpMail.setText(usuario.getEmail());
-		JLabel lblid = new JLabel("Id usuario :" + usuario.getId());
-		lblid.setBounds(278, 49, 135, 14);
+		
+		JLabel lblid = new JLabel("Id Usuario: " + usuario.getId());
+		lblid.setBounds(278, 30, 135, 14);
 		contentPane.add(lblid);
+		
 		JButton btnNewButton = new JButton("Editar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -72,12 +79,13 @@ public class Editar extends JFrame {
 					usuario.setEmail(inpMail.getText());
 					usuario.setName(inpNombre.getText());;
 					usuario.setRol(Integer.parseInt(inpid.getText()));;
+					
 					if (controlador.updateUser(usuario)) {
 						JOptionPane.showMessageDialog(null, "Pudo editar");
 						Home home = new Home(usuario.getName());
 						dispose();
 					} else {
-						JOptionPane.showMessageDialog(null, "No poudo editar");
+						JOptionPane.showMessageDialog(null, "No pudo editar");
 
 					}
 					
@@ -94,4 +102,5 @@ public class Editar extends JFrame {
 		
 	
 	}
+
 }

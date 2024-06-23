@@ -13,7 +13,7 @@ public interface SupplyRepository {
     
     void addSupply(Suministro Supply); 
     
-    void updateSupply(Suministro Supply); 
+    boolean updateSupply(Suministro Supply); 
     
     void deleteSupply(int id);
 

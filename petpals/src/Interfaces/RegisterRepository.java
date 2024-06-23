@@ -13,7 +13,7 @@ public interface RegisterRepository {
     
     void addRegister(Registro Register); 
     
-    void updateRegister(Registro Register); 
+    boolean updateRegister(Registro Register); 
     
     void deleteRegister(int id);
 

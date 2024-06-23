@@ -80,7 +80,7 @@ public class RegistroControlador implements RegisterRepository {
 	    }
 
 		@Override
-		   public void updateRegister(Registro Registro) {
+		   public boolean updateRegister(Registro Registro) {
 	        try {
 	            PreparedStatement statement = connection.prepareStatement("UPDATE registro SET nombre_mascota = ?, edad_mascota = ?, especie = ? WHERE id = ?");
 	            statement.setString(1, Registro.getNombre_mascota());
@@ -95,6 +95,7 @@ public class RegistroControlador implements RegisterRepository {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
+			return false;
 	    }
 
 		@Override

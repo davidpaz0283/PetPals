@@ -13,7 +13,7 @@ public interface PriceRepository {
     
     void addPrice(Precio Price); 
     
-    void updatePrice(Precio Price); 
+    boolean updatePrice(Precio Price); 
     
     void deletePrice(int id);
 

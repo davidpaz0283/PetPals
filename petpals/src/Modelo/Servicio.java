@@ -32,6 +32,8 @@ public class Servicio {
 		this.alojamiento = alojamiento;
 	}
 	
+	
+	
 	public Servicio(int id, String corte_de_pelo, String baño, String paseo, String alojamiento) {
 		super();
 		this.id=id;
@@ -39,6 +41,12 @@ public class Servicio {
 		this.baño = baño;
 		this.paseo = paseo;
 		this.alojamiento = alojamiento;
+	}
+	
+	
+
+	public Servicio() {
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {

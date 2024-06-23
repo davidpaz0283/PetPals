@@ -49,30 +49,30 @@ public class PantallaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Bienvenidos");
+		JLabel lblNewLabel = new JLabel("Bienvenidos a PetPals");
 		lblNewLabel.setFont(new Font("Roboto Lt", Font.BOLD | Font.ITALIC, 35));
-		lblNewLabel.setBounds(119, 11, 228, 34);
+		lblNewLabel.setBounds(59, 24, 386, 34);
 		contentPane.add(lblNewLabel);
 		
 		InputNombre = new JTextField();
-		InputNombre.setBounds(119, 72, 198, 27);
+		InputNombre.setBounds(119, 104, 198, 27);
 		contentPane.add(InputNombre);
 		
 		InputContraseña = new JPasswordField();
-		InputContraseña.setBounds(119, 133, 198, 27);
+		InputContraseña.setBounds(119, 164, 198, 27);
 		contentPane.add(InputContraseña);
 		
 		JButton Ingresar = new JButton("Ingresar");
 		
-		Ingresar.setBounds(129, 183, 170, 27);
+		Ingresar.setBounds(129, 218, 170, 27);
 		contentPane.add(Ingresar);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre de Usuario");
-		lblNewLabel_1.setBounds(119, 56, 198, 14);
+		lblNewLabel_1.setBounds(119, 84, 198, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Contraseña");
-		lblNewLabel_1_1.setBounds(119, 118, 198, 14);
+		lblNewLabel_1_1.setBounds(119, 142, 198, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel Error = new JLabel("");
@@ -92,7 +92,7 @@ public class PantallaPrincipal extends JFrame {
 				
 			}
 		});
-		Registrarse.setBounds(129, 221, 170, 27);
+		Registrarse.setBounds(129, 256, 170, 27);
 		contentPane.add(Registrarse);
 		Error.setVisible(false);
 		Ingresar.addActionListener(new ActionListener() { 	
@@ -103,9 +103,16 @@ public class PantallaPrincipal extends JFrame {
 					 
 					 Home home = new Home(InputNombre.getText());
 					 dispose();
-				 }else if(respuesta.equals("rol:2")) {
 					 
-					 Admin admin = new Admin();
+				 } else if 
+					 (respuesta.equals("rol:2") ) {
+						 
+						 HomeCuidador homeCuidador = new HomeCuidador(InputNombre.getText());
+						 dispose();
+						 
+				 }else if(respuesta.equals("rol:3")) {
+					 
+					 ClienteAdm admin = new ClienteAdm();
 					 dispose();
 				 }{
 					 Error.setText(respuesta);

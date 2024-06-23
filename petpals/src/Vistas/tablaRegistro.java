@@ -11,8 +11,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import Controlador.UsuarioControlador;
-import Modelo.Usuario;
+import Controlador.RegistroControlador;
+import Modelo.Registro;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -23,16 +23,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 
-public class tabla extends JFrame {
+public class tablaRegistro extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTable table;
     private DefaultTableModel model;
-    private UsuarioControlador controlador;
+    private RegistroControlador controlador;
     private JLabel elemento;
-    private Usuario seleccionado;
+    private RegistroControlador seleccionado;
     private JButton Editar;
+   
+    
 
     /**
      * Launch the application.
@@ -52,7 +54,7 @@ public class tabla extends JFrame {
     /**
      * Create the frame.
      */
-    public tabla() {
+    public tablaRegistro() {
     	this.setVisible(true);
     	
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,22 +64,17 @@ public class tabla extends JFrame {
 
         setContentPane(contentPane);
 
+        controlador = new RegistroControlador();
+        Registro seleccionado = new Registro();
        
-        controlador = new UsuarioControlador();
-       Usuario seleccionado = new Usuario();
 
       
-        String[] columnNames = {"ID", "Nombre", "mail","Rol"};
+        String[] columnNames = {"id", "nombre_mascota", "edad_mascota","especie"};
         model = new DefaultTableModel(columnNames, 0);
         table = new JTable(model);
-        actualizarTabla();
+        actualizartablaRegistro();
         contentPane.setLayout(null);
         
-        String[] columnNamesService = {"id", "alojamiento", "baño","corte_de_pelo","paseo"};
-        model = new DefaultTableModel(columnNames, 0);
-        table = new JTable(model);
-        actualizarTabla();
-        contentPane.setLayout(null);
        
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(5, 19, 911, 190);
@@ -94,30 +91,28 @@ public class tabla extends JFrame {
         		
         		if (seleccionado.getId()!=0) {
 					
-        			controlador.deleteUser(seleccionado.getId());
+        			controlador.deleteRegister(seleccionado.getId());
         			JOptionPane.showMessageDialog(null, "Eliminado");
-        			 actualizarTabla();
+        			 actualizartablaRegistro();
 				} else {
-					JOptionPane.showMessageDialog(null, "Seleccione un usuario");
+					JOptionPane.showMessageDialog(null, "Seleccione un Registro");
 				}
         		
-        		
-        		
         	}
-        });
+});
         btnEliminar.setBounds(150, 280, 187, 58);
         contentPane.add(btnEliminar);
         
-        Editar = new JButton("Editar");
+        Editar = new JButton("Editar Registro");
         Editar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
         		if (seleccionado.getId()!=0) {
 					
-        			Editar editar = new Editar(seleccionado);
+        			EditarRegistro editarRegistro = new EditarRegistro(seleccionado);
         			dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Seleccione un usuario");
+					JOptionPane.showMessageDialog(null, "Seleccione un Registro");
 				}
         		
         	}
@@ -133,7 +128,6 @@ public class tabla extends JFrame {
         ListSelectionModel selectionModel = table.getSelectionModel();
         selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-       
         selectionModel.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -141,38 +135,42 @@ public class tabla extends JFrame {
                     int selectedRow = table.getSelectedRow();
                     if (selectedRow != -1) {
                         int id = (int) table.getValueAt(selectedRow, 0);
-                        String name = (String) table.getValueAt(selectedRow, 1);
-                        String mail = (String) table.getValueAt(selectedRow, 2);
-                        int rol = (int) table.getValueAt(selectedRow, 3);
-                        elemento.setText("Seleccionado: ID=" + id + ", Name=" + name + ", Mail=" + mail + "Rol=" + rol );
-                        seleccionado.setEmail(mail);
-                        seleccionado.setName(name);
+                        String nombre_mascota = (String) table.getValueAt(selectedRow, 1);
+                        String edad_mascota = (String) table.getValueAt(selectedRow, 2);
+                        String especie = (String) table.getValueAt(selectedRow, 3);
+                        
+                        elemento.setText("Seleccionado: id=" + id + ", Nombre_mascota=" + nombre_mascota + ", Edad_mascota=" + edad_mascota + ", Especie=" + especie);
+                        seleccionado.setNombre_mascota(nombre_mascota);
+                        seleccionado.setEdad_mascota(edad_mascota);
+                        seleccionado.setEspecie(especie);
                         seleccionado.setId(id);
-                        seleccionado.setRol(rol);
+                
                     }
                 }
             }
         });
     }
 
-    private void actualizarTabla() {
+    private void actualizartablaRegistro() {
         
         model.setRowCount(0);
 
         
-        List<Usuario> usuarios = controlador.getAllUsers();
+        List<Registro> Registros = controlador.getAllRegister();
 
         
-        for (Usuario usuario : usuarios) {
+        for (Registro Registro : Registros) {
             model.addRow(
             		new Object[]
             				{
-            						usuario.getId()
-            						, usuario.getName()
-            						, usuario.getEmail()
-            						, usuario.getRol()
-            						}
-            		);
+            						  Registro.getId()
+            						, Registro.getNombre_mascota()
+            						, Registro.getEdad_mascota()
+            						, Registro.getEspecie()
+            						
+            				}
+            		
+            		    		);
         }
     }
 }

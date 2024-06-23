@@ -82,8 +82,7 @@ public class PrecioControlador implements PriceRepository {
 	        }
 	    }
 
-		@Override
-		   public void updatePrice(Precio Precio) {
+		public boolean updatePrice(Precio Precio) {
 	        try {
 	            PreparedStatement statement = connection.prepareStatement("UPDATE Precio SET tarifa_corte_de_pelo = ?, tarifa_paseos = ?, tarifa_baños = ?, tarifa_alojamiento = ? WHERE id = ?");
 	            statement.setString(1, Precio.getTarifa_corte_de_pelo());
@@ -99,6 +98,8 @@ public class PrecioControlador implements PriceRepository {
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
+			return false;
+			
 	    }
 
 		@Override

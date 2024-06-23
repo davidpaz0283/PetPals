@@ -13,7 +13,7 @@ public interface ServiceRepository {
     
     void addService(Servicio Service); 
     
-    void updateService(Servicio Service); 
+    boolean updateService(Servicio Service); 
     
     void deleteService(int id);
 }

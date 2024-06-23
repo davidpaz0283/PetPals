@@ -11,8 +11,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import Controlador.UsuarioControlador;
-import Modelo.Usuario;
+import Controlador.PrecioControlador;
+import Modelo.Precio;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -23,16 +23,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 
-public class tabla extends JFrame {
+public class tablaPrecio extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTable table;
     private DefaultTableModel model;
-    private UsuarioControlador controlador;
+    private PrecioControlador controlador;
     private JLabel elemento;
-    private Usuario seleccionado;
+    private PrecioControlador seleccionado;
     private JButton Editar;
+   
+    
 
     /**
      * Launch the application.
@@ -52,7 +54,7 @@ public class tabla extends JFrame {
     /**
      * Create the frame.
      */
-    public tabla() {
+    public tablaPrecio() {
     	this.setVisible(true);
     	
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,22 +64,17 @@ public class tabla extends JFrame {
 
         setContentPane(contentPane);
 
+        controlador = new PrecioControlador();
+        Precio seleccionado = new Precio();
        
-        controlador = new UsuarioControlador();
-       Usuario seleccionado = new Usuario();
 
       
-        String[] columnNames = {"ID", "Nombre", "mail","Rol"};
+        String[] columnNames = {"id", "tarifa_corte_de_pelo", "tarifa_paseos","tarifa_baños","tarifa_alojamiento"};
         model = new DefaultTableModel(columnNames, 0);
         table = new JTable(model);
-        actualizarTabla();
+        actualizartablaPrecio();
         contentPane.setLayout(null);
         
-        String[] columnNamesService = {"id", "alojamiento", "baño","corte_de_pelo","paseo"};
-        model = new DefaultTableModel(columnNames, 0);
-        table = new JTable(model);
-        actualizarTabla();
-        contentPane.setLayout(null);
        
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(5, 19, 911, 190);
@@ -94,30 +91,28 @@ public class tabla extends JFrame {
         		
         		if (seleccionado.getId()!=0) {
 					
-        			controlador.deleteUser(seleccionado.getId());
+        			controlador.deletePrice(seleccionado.getId());
         			JOptionPane.showMessageDialog(null, "Eliminado");
-        			 actualizarTabla();
+        			 actualizartablaPrecio();
 				} else {
-					JOptionPane.showMessageDialog(null, "Seleccione un usuario");
+					JOptionPane.showMessageDialog(null, "Seleccione un precio");
 				}
         		
-        		
-        		
         	}
-        });
+});
         btnEliminar.setBounds(150, 280, 187, 58);
         contentPane.add(btnEliminar);
         
-        Editar = new JButton("Editar");
+        Editar = new JButton("Editar Precio");
         Editar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
         		if (seleccionado.getId()!=0) {
 					
-        			Editar editar = new Editar(seleccionado);
+        			EditarPrecio editarPrecio = new EditarPrecio(seleccionado);
         			dispose();
 				} else {
-					JOptionPane.showMessageDialog(null, "Seleccione un usuario");
+					JOptionPane.showMessageDialog(null, "Seleccione un precio");
 				}
         		
         	}
@@ -133,7 +128,6 @@ public class tabla extends JFrame {
         ListSelectionModel selectionModel = table.getSelectionModel();
         selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-       
         selectionModel.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -141,38 +135,43 @@ public class tabla extends JFrame {
                     int selectedRow = table.getSelectedRow();
                     if (selectedRow != -1) {
                         int id = (int) table.getValueAt(selectedRow, 0);
-                        String name = (String) table.getValueAt(selectedRow, 1);
-                        String mail = (String) table.getValueAt(selectedRow, 2);
-                        int rol = (int) table.getValueAt(selectedRow, 3);
-                        elemento.setText("Seleccionado: ID=" + id + ", Name=" + name + ", Mail=" + mail + "Rol=" + rol );
-                        seleccionado.setEmail(mail);
-                        seleccionado.setName(name);
+                        String Tarifa_corte_de_pelo = (String) table.getValueAt(selectedRow, 1);
+                        String Tarifa_paseos = (String) table.getValueAt(selectedRow, 2);
+                        String Tarifa_baños = (String) table.getValueAt(selectedRow, 3);
+                        String Tarifa_alojamiento = (String) table.getValueAt(selectedRow, 4);
+                        elemento.setText("Seleccionado: id=" + id + ", tarifa_corte_de_pelo=" + Tarifa_corte_de_pelo + ", tarifa_paseos=" + Tarifa_paseos + ", tarifa_baños=" + Tarifa_baños + ", tarifa_alojamiento=" + Tarifa_alojamiento );
+                        seleccionado.setTarifa_corte_de_pelo(Tarifa_corte_de_pelo);
+                        seleccionado.setTarifa_paseos(Tarifa_paseos);
+                        seleccionado.setTarifa_baños(Tarifa_baños);
+                        seleccionado.setTarifa_alojamiento(Tarifa_alojamiento);
                         seleccionado.setId(id);
-                        seleccionado.setRol(rol);
+                
                     }
                 }
             }
         });
     }
 
-    private void actualizarTabla() {
+    private void actualizartablaPrecio() {
         
         model.setRowCount(0);
 
         
-        List<Usuario> usuarios = controlador.getAllUsers();
+        List<Precio> precios = controlador.getAllPrice();
 
         
-        for (Usuario usuario : usuarios) {
+        for (Precio precio : precios) {
             model.addRow(
             		new Object[]
             				{
-            						usuario.getId()
-            						, usuario.getName()
-            						, usuario.getEmail()
-            						, usuario.getRol()
-            						}
-            		);
+            						  precio.getId()
+            						, precio.getTarifa_corte_de_pelo()
+            						, precio.getTarifa_paseos()
+            						, precio.getTarifa_baños()
+            						, precio.getTarifa_alojamiento()
+            				}
+            		
+            		    		);
         }
     }
 }
