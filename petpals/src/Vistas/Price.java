@@ -13,7 +13,7 @@ public class Price {
 		
 		
 		PrecioControlador controlar = new PrecioControlador();
-		JOptionPane.showMessageDialog(null, controlar.getAllPrice());
+		
 		
 		String[] opciones = {
 				"Agregar Precio","Ver Precio","Buscar Precio por id","Editar Precio","Eliminar Precio","Salir"
@@ -29,7 +29,7 @@ public class Price {
 			String tarifa_paseos = JOptionPane.showInputDialog("Tarifa paseos: ");
 			String tarifa_baños = JOptionPane.showInputDialog("Tarifa baños: ");
 			String tarifa_alojamiento = JOptionPane.showInputDialog("Tarifa alojamiento: ");
-			controlar.addPrice(new Precio(opcion, tarifa_corte_de_pelo,tarifa_paseos,tarifa_baños,tarifa_alojamiento));		
+			controlar.addPrice(new Precio(opcion, tarifa_corte_de_pelo, tarifa_paseos, tarifa_baños, tarifa_alojamiento));		
 			break;
 		case 1:
 			JOptionPane.showMessageDialog(null, controlar.getAllPrice());	

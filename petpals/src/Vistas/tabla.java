@@ -105,7 +105,7 @@ public class tabla extends JFrame {
         		
         	}
         });
-        btnEliminar.setBounds(150, 280, 187, 58);
+        btnEliminar.setBounds(66, 280, 166, 58);
         contentPane.add(btnEliminar);
         
         Editar = new JButton("Editar");
@@ -122,8 +122,17 @@ public class tabla extends JFrame {
         		
         	}
         });
-        Editar.setBounds(500, 280, 166, 58);
+        Editar.setBounds(330, 280, 166, 58);
         contentPane.add(Editar);
+        
+        JButton salir = new JButton("Salir");
+		salir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(WIDTH);
+			}
+		});
+		salir.setBounds(600, 280, 166, 58);
+		contentPane.add(salir);
         
         JMenuBar menuBar = new JMenuBar();
         menuBar.setBounds(15, 220, 101, 22);

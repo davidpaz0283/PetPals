@@ -116,5 +116,13 @@ public class PrecioControlador implements PriceRepository {
 	            e.printStackTrace();
 	        }
 	    }
+
+		public void addPrice(String tarifa_corte_de_pelo, String tarifa_paseos, String tarifa_baños,
+				String tarifa_alojamiento) {
+			// TODO Auto-generated method stub
+			
+		}
+
+
 	  
 	}

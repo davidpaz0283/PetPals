@@ -115,14 +115,22 @@ public class EditarServicio extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(150, 210, 89, 23);
+		btnNewButton.setBounds(150, 190, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblError = new JLabel("");
 		lblError.setBounds(232, 105, 46, 14);
 		contentPane.add(lblError);
 		
-	
+		
+		JButton Volver = new JButton("Volver");
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tablaServicio tablaServicio = new tablaServicio();
+				
+			}
+		});
+		Volver.setBounds(160, 220, 70, 20);
+		contentPane.add(Volver);
+		}
 	}
-
-}

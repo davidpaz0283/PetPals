@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class PantallaPrincipal extends JFrame {
 
@@ -39,19 +40,21 @@ public class PantallaPrincipal extends JFrame {
 	}
 
 	public PantallaPrincipal() {
-		this.setVisible(true);
+		setFont(new Font("Berlin Sans FB", Font.PLAIN, 18));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 499, 350);
 		contentPane = new JPanel();
-		contentPane.setForeground(new Color(0, 0, 255));
+		contentPane.setBackground(new Color(0, 0, 128));
+		contentPane.setForeground(new Color(0, 0, 160));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Bienvenidos a PetPals");
+		JLabel lblNewLabel = new JLabel("Bienvenidos ");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Roboto Lt", Font.BOLD | Font.ITALIC, 35));
-		lblNewLabel.setBounds(59, 24, 386, 34);
+		lblNewLabel.setBounds(75, 24, 386, 34);
 		contentPane.add(lblNewLabel);
 		
 		InputNombre = new JTextField();
@@ -59,7 +62,7 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(InputNombre);
 		
 		InputContraseña = new JPasswordField();
-		InputContraseña.setBounds(119, 164, 198, 27);
+		InputContraseña.setBounds(119, 161, 198, 27);
 		contentPane.add(InputContraseña);
 		
 		JButton Ingresar = new JButton("Ingresar");
@@ -68,16 +71,20 @@ public class PantallaPrincipal extends JFrame {
 		contentPane.add(Ingresar);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre de Usuario");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setBackground(new Color(255, 255, 255));
 		lblNewLabel_1.setBounds(119, 84, 198, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Contraseña");
+		lblNewLabel_1_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1_1.setBackground(new Color(255, 255, 255));
 		lblNewLabel_1_1.setBounds(119, 142, 198, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel Error = new JLabel("");
 		Error.setForeground(new Color(255, 0, 0));
-		Error.setBounds(119, 164, 198, 14);
+		Error.setBounds(119, 193, 198, 14);
 		contentPane.add(Error);
 		Error.setVisible(false);
 		
@@ -94,6 +101,21 @@ public class PantallaPrincipal extends JFrame {
 		});
 		Registrarse.setBounds(129, 256, 170, 27);
 		contentPane.add(Registrarse);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\David\\Desktop\\petpals.png"));
+		btnNewButton.setBounds(291, 0, 192, 98);
+		contentPane.add(btnNewButton);
+		
+		JButton salir = new JButton("Salir");
+		salir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(WIDTH);
+			}
+		});
+		salir.setBounds(372, 258, 89, 23);
+		contentPane.add(salir);
+		
 		Error.setVisible(false);
 		Ingresar.addActionListener(new ActionListener() { 	
 			public void actionPerformed(ActionEvent e) {

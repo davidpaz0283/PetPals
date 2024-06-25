@@ -100,7 +100,5 @@ public class Editar extends JFrame {
 		lblError.setBounds(232, 105, 46, 14);
 		contentPane.add(lblError);
 		
-	
 	}
-
 }

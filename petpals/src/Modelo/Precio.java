@@ -52,6 +52,10 @@ public class Precio {
 	public Precio() {
 		// TODO Auto-generated constructor stub
 	}
+	public Precio(String tarifa_corte_de_pelo2, String tarifa_paseos2, String tarifa_baños2,
+			String tarifa_alojamiento2) {
+		// TODO Auto-generated constructor stub
+	}
 
 
 }

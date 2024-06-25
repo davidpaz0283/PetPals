@@ -101,7 +101,7 @@ public class EditarRegistro extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(150, 210, 89, 23);
+		btnNewButton.setBounds(150, 160, 89, 23);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblError = new JLabel("");
@@ -109,6 +109,16 @@ public class EditarRegistro extends JFrame {
 		contentPane.add(lblError);
 		
 	
+	
+	
+	JButton Volver = new JButton("Volver");
+	Volver.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			tablaRegistro tablaregistro = new tablaRegistro();
+			
+		}
+	});
+	Volver.setBounds(160, 200, 70, 20);
+	contentPane.add(Volver);
 	}
-
 }
